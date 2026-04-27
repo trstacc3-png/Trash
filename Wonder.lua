@@ -143,7 +143,7 @@ logConn = LogService.MessageOut:Connect(function(message, type)
     end
 end)
 
-local url = "https://raw.githubusercontent.com/trstacc3-png/Trash/refs/heads/main/Texting"
+local url = "https://raw.githubusercontent.com/trstacc3-png/Trash/refs/heads/main/Texting", "https://raw.githubusercontent.com/skrylor/english-words/refs/heads/main/merged_english.txt"
 local fileName = "ultimate_words_v5.txt"
 
 -- Temporary Loading UI
