@@ -19,8 +19,8 @@ local request = (syn and syn.request) or (http and http.request) or http_request
 
 local TOGGLE_KEY = Enum.KeyCode.RightControl
 local MIN_CPM = 50
-local MAX_CPM_LEGIT = 1500
-local MAX_CPM_BLATANT = 3000
+local MAX_CPM_LEGIT = 20000
+local MAX_CPM_BLATANT = 50000
 
 math.randomseed(os.time())
 
@@ -62,7 +62,7 @@ local Config = {
     RiskyMistakes = false,
     CustomWords = {},
     MinTypeSpeed = 50,
-    MaxTypeSpeed = 3000,
+    MaxTypeSpeed = 50000,
     KeyboardLayout = "QWERTY"
 }
 
@@ -124,8 +124,8 @@ local UpdateList
 local ButtonCache = {}
 local ButtonData = {}
 local JoinDebounce = {}
-local thinkDelayMin = 0.4
-local thinkDelayMax = 1.2
+local thinkDelayMin = 0
+local thinkDelayMax = 5
 
 local listUpdatePending = false
 local forceUpdateList = false
@@ -143,7 +143,7 @@ logConn = LogService.MessageOut:Connect(function(message, type)
     end
 end)
 
-local url = "https://raw.githubusercontent.com/trstacc3-png/Trash/refs/heads/main/Texting", "https://raw.githubusercontent.com/skrylor/english-words/refs/heads/main/merged_english.txt"
+local url = "https://raw.githubusercontent.com/skrylor/english-words/refs/heads/main/merged_english.txt"
 local fileName = "ultimate_words_v5.txt"
 
 -- Temporary Loading UI
@@ -190,16 +190,16 @@ end
 
 -- Startup: Always fetch fresh word list
 local function FetchWords()
-    UpdateStatus("Fetching latest word list...", THEME.Warning)
+    UpdateStatus("Loading latest word list...", THEME.Warning)
     local success, res = pcall(function()
         return request({Url = url, Method = "GET"})
     end)
     
     if success and res and res.Body then
         writefile(fileName, res.Body)
-        UpdateStatus("Fetched successfully!", THEME.Success)
+        UpdateStatus("Loaded successfully!", THEME.Success)
     else
-        UpdateStatus("Fetch failed! Using cached.", Color3.fromRGB(255, 80, 80))
+        UpdateStatus("Load failed! Using cached.", Color3.fromRGB(255, 80, 80))
     end
     task.wait(0.5)
 end
