@@ -19,8 +19,8 @@ local request = (syn and syn.request) or (http and http.request) or http_request
 
 local TOGGLE_KEY = Enum.KeyCode.RightControl
 local MIN_CPM = 250
-local MAX_CPM_LEGIT = 20000
-local MAX_CPM_BLATANT = 50000
+local MAX_CPM_LEGIT = 100000
+local MAX_CPM_BLATANT = 500000
 
 math.randomseed(os.time())
 
