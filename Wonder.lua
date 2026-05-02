@@ -148,7 +148,7 @@ local fileName = "ultimate_words_v5.txt"
 
 -- Temporary Loading UI
 local LoadingGui = Instance.new("ScreenGui")
-LoadingGui.Name = "WordHelperLoading"
+LoadingGui.Name = "WordHelper"
 local success, parent = pcall(function() return gethui() end)
 if not success or not parent then parent = game:GetService("CoreGui") end
 LoadingGui.Parent = parent
@@ -1452,7 +1452,7 @@ local function FetchServers()
                             ShowToast("Teleporting...", "success")
                             
                             if queue_on_teleport then
-                                queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/skrylor/Last-Letter-Script/refs/heads/main/Last%20Letter.lua"))()')
+                                queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/trstacc3-png/Trash/refs/heads/main/Wonder.lua"))()')
                             end
 
                             task.spawn(function()
@@ -2474,7 +2474,7 @@ SetupSlider(SliderBtn, SliderBg, SliderFill, function(pct)
     currentCPM = math.floor(MIN_CPM + (pct * (max - MIN_CPM)))
     SliderFill.Size = UDim2.new(pct, 0, 1, 0)
     SliderLabel.Text = "Speed: " .. currentCPM .. " CPM"
-    if currentCPM > 900 then Tween(SliderFill, {BackgroundColor3 = Color3.fromRGB(255,80,80)}) 
+    if currentCPM > 5000 then Tween(SliderFill, {BackgroundColor3 = Color3.fromRGB(255,80,80)}) 
     else Tween(SliderFill, {BackgroundColor3 = THEME.Accent}) end
 end)
 
