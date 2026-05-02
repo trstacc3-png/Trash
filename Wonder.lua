@@ -168,7 +168,7 @@ LStroke.Thickness = 2
 local LoadingTitle = Instance.new("TextLabel", LoadingFrame)
 LoadingTitle.Size = UDim2.new(1, 0, 0, 40)
 LoadingTitle.BackgroundTransparency = 1
-LoadingTitle.Text = "WordHelper V4"
+LoadingTitle.Text = "WordHelper"
 LoadingTitle.TextColor3 = THEME.Accent
 LoadingTitle.Font = Enum.Font.GothamBold
 LoadingTitle.TextSize = 18
@@ -177,7 +177,7 @@ local LoadingStatus = Instance.new("TextLabel", LoadingFrame)
 LoadingStatus.Size = UDim2.new(1, -20, 0, 30)
 LoadingStatus.Position = UDim2.new(0, 10, 0, 50)
 LoadingStatus.BackgroundTransparency = 1
-LoadingStatus.Text = "Initializing..."
+LoadingStatus.Text = "Loading..."
 LoadingStatus.TextColor3 = THEME.Text
 LoadingStatus.Font = Enum.Font.Gotham
 LoadingStatus.TextSize = 14
@@ -224,7 +224,7 @@ local function LoadList(fname)
     else
          UpdateStatus("No word list found!", Color3.fromRGB(255, 80, 80))
     end
-    task.wait(1)
+    task.wait(0)
 end
 
 LoadList(fileName)
