@@ -18,7 +18,7 @@ local GuiService = cloneref(game:GetService("GuiService"))
 local request = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
 
 local TOGGLE_KEY = Enum.KeyCode.RightControl
-local MIN_CPM = 50
+local MIN_CPM = 250
 local MAX_CPM_LEGIT = 20000
 local MAX_CPM_BLATANT = 50000
 
@@ -58,7 +58,7 @@ local Config = {
     PanicMode = true,
     ShowKeyboard = false,
     ErrorRate = 5,
-    ThinkDelay = 0.8,
+    ThinkDelay = 1,
     RiskyMistakes = false,
     CustomWords = {},
     MinTypeSpeed = 50,
@@ -201,7 +201,7 @@ local function FetchWords()
     else
         UpdateStatus("Load failed! Using cached.", Color3.fromRGB(255, 80, 80))
     end
-    task.wait(0.5)
+    task.wait(0)
 end
 
 FetchWords()
@@ -522,7 +522,7 @@ Header.BackgroundColor3 = THEME.ItemBG
 Header.BorderSizePixel = 0
 
 local Title = Instance.new("TextLabel", Header)
-Title.Text = "Word<font color=\"rgb(114,100,255)\">Helper</font> V4"
+Title.Text = "Word<font color=\"rgb(114,100,255)\">Helper</font>"
 Title.RichText = true
 Title.Font = Enum.Font.GothamBold
 Title.TextSize = 18
@@ -1473,7 +1473,7 @@ local function FetchServers()
                 SBList.CanvasSize = UDim2.new(0,0,0, SBLayout.AbsoluteContentSize.Y)
             end
         else
-            ShowToast("Failed to fetch servers", "error")
+            ShowToast("Failed to load servers", "error")
         end
         SBRefresh.Text = "Refresh"
     end)
